@@ -1,0 +1,12 @@
+<launch>  
+ 
+<!-- arduino mega & nano1 & nano2-->
+    <include file="$(find rosserial_server)/launch/serial_arduino.launch" />
+
+<!-- cmd_vel to PWM -->  
+    <node pkg="scl3_mini"  name="vel"  type="vel.py"  output="screen"/>
+
+<!--pd control-->
+    <!--include file="$(find pid)/launch/differential_drive_sim.launch"/-->
+
+</launch>

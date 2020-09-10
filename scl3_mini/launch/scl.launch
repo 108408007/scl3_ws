@@ -1,0 +1,16 @@
+<launch>
+
+   <!-- rviz -->
+     <node name="tf_rviz1" pkg="rviz" type="rviz" args="-d $(find scl3_mini)/rviz/tf_rviz"/>
+   <!-- robot tf -->
+     <node pkg="tf" type="static_transform_publisher" name="scl3" args="0.0 0.0 0.027 0.0 0.0 0.0 /base_link /scl3car 100"/>
+   <!-- map -->
+     <node pkg="map_server" name="LJJmap" type="map_server" args="$(find scl3_mini)/map/0110out1.yaml"/>
+     
+     <arg name="odom_topic" default="odom"/>
+   <!-- teleop -->
+   <node pkg="turtlebot3_teleop" type="turtlebot3_teleop_key" name="turtlebot3_teleop_keyboard"  output="screen">
+   </node>
+
+
+</launch>
